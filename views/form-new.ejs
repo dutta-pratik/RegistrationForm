@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link rel="stylesheet" href="/css/form.css">
+    <title>Registration Form</title>
+</head>
+<body>
+    <div class="main-box">
+        <div class="heading">
+            <h3><strong>Registration Form</strong></h3>  
+        </div>
+
+        <form action="/register-google" method="POST" id="form">
+
+            <div class="name">
+                <label for="name"> <strong>Name</strong> </label> <br>
+                <input type="text" id="name" name="name" placeholder="Name" required>
+                
+            </div>
+
+            <div class="email">
+                <label for="email"> <strong>Email</strong> </label> <br>
+                <input type="email" name="email" id="email" placeholder="Email" required>
+                
+            </div>
+
+            <div class="password">
+                <label for="password"> <strong>Password</strong> </label> <br>
+                <input type="password" name="password" id="password" placeholder="Password" required>
+                
+            </div>
+
+            <div class="recaptcha">
+                <div class="g-recaptcha" data-sitekey="6Le7C-UUAAAAAPnIEJmKsJ72n87zwHrY2k2EsjNF"></div>
+            </div>
+
+            <div class="submit-button">
+                <input type="submit" name="submit" id="submit" value="Submit">
+            </div>
+            
+
+        </form>
+
+    </div>
+
+    <!-- <script src="/js/ejs.min.js"></script> -->
+    <script>
+        document.getElementById("form").addEventListener("submit", submitForm);
+
+        function submitForm(e){
+            e.preventDefault();
+
+            const name = document.querySelector("#name").value;
+            const password = document.querySelector("#password").value;
+            const email = document.querySelector("#email").value;
+            const captcha = document.querySelector("#g-recaptcha-response").value;
+
+            fetch("/register-google", {
+                method: "POST",
+                headers: {
+                    "Accept": "application/json, text/plain, */*",
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    password: password,
+                    captcha: captcha
+                })
+            });
+            // .then((res) => res.json())
+            // .then((data) => {
+            //     console.log(data, "html");
+            // });
+        }
+    </script>
+
+</body>
+</html>

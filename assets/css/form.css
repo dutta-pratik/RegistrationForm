@@ -1,0 +1,65 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.main-box{
+    height: 490px;
+    width: 306px;
+    margin-left: 38%;
+    margin-top: 6%;
+    border-radius: 10px;
+    box-shadow: -3px -3px 7px rgb(179, 179, 179), 3px 3px 7px rgb(228, 228, 228);
+}
+
+.heading{
+    margin-left:41px;
+    font-size: 1.2rem;
+}
+
+.name{
+    font-size: 1.1rem;
+    margin: 20px 0px 15px 41px;
+}
+#name{
+    margin-top: 10px;
+}
+
+.email{
+    font-size: 1.1rem;
+    margin: 10px 0px 15px 41px;
+}
+#email{
+    margin-top: 10px;
+}
+
+.password{
+    font-size: 1.1rem;
+    margin: 10px 0px 15px 41px;
+}
+#password{
+    margin-top: 10px;
+}
+
+
+.submit-button{
+    margin: 50px 0px 20px 95px;
+}
+#submit{
+    width: 70px;
+    height: 35px;
+    border: none;
+    background-color: orchid;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    outline: none;
+}
+#submit:hover{
+    background-color: white;
+    color: orchid;
+    border: 0.5px solid orchid;
+    box-shadow: -3px -3px 7px rgb(207, 98, 204), 3px 3px 7px rgb(233, 151, 230);
+    
+}
