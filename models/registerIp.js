@@ -1,5 +1,7 @@
+/****************IMPORTING MONGOOSE*******************************/
 const mongoose = require("mongoose");
 
+/***************CREATING IP ADDRESS SCHEMA*****************************/
 const registerIpSchema = new mongoose.Schema({
     ip:{
         type: String
@@ -10,8 +12,9 @@ const registerIpSchema = new mongoose.Schema({
 
 });
  
-//making model
+/******************MAKING MODEL*********************************/
 const registerIp = mongoose.model("registerIp", registerIpSchema);
-//exporting the schema
+
+/*****************EXPORTING MODEL*******************************/
 module.exports = registerIp;
 

@@ -1,5 +1,7 @@
+/****************IMPORTING MONGOOSE*******************************/
 const mongoose = require("mongoose");
 
+/***************CREATING USER SCHEMA*****************************/
 const userSchema = new mongoose.Schema({
     name:{
         type: String,
@@ -16,8 +18,11 @@ const userSchema = new mongoose.Schema({
 },{
     timestamps:true
 });
-//making model
+
+
+/******************MAKING MODEL*********************************/
 const User = mongoose.model("User", userSchema);
-//exporting the schema
+
+/*****************EXPORTING MODEL*******************************/
 module.exports = User;
 

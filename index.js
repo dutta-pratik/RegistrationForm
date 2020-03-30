@@ -1,19 +1,22 @@
+/*************IMPORTING PACKAGES**************************/
 const express = require("express");
 const bodyParser = require("body-parser");
 const ip = require("request-ip");
 const db = require("./config/mongoose");
 const expressValidator = require("express-validator");
-// const expressSession = require("express-session");
 
-
+/*************CONFIGURE PORTSS**************************/
 const port = 8000;
 
+/*************USING REQUIRED FUNCTION**************************/
 const app = express();
 
+//body parser
 app.use(bodyParser.json());
 
 app.use(express.urlencoded({extended: true}));
 
+//express-validator
 app.use(expressValidator());
 
 //setting up static files
@@ -23,11 +26,10 @@ app.use(express.static("assets"));
 app.set("view engine", "ejs");
 app.set("views", "./views");
 
-
-// app.use(expressSession({secret:"max", saveUninitialized: false, resave: false}));
-
 //using express router
 app.use("/", require("./routes/index"));
+
+/******************CHECKING SERVER STATUS****************************/
 
 app.listen(port, function(err){
     if(err){
